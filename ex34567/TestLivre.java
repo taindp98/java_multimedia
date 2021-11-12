@@ -9,9 +9,19 @@ public static void main(String args[]){
 	//System.out.println("The Auteur of book 2 is" + book2.getAuteur());
 	// ex4
 	book1.setNbPages(10);
-	book2.setNbPages(-1);
-	System.out.println(book1);
-	book1.afficheToi();
+	book2.setNbPages(8);
+	// System.out.println(book1);
+	// book1.afficheToi();
+	// ex7
+	book2.setPrix(20);
+	System.out.println(book2);
+	book2.checkCurrentState();
+	// change price invalid
+	System.out.println("Set the new price");
+	book2.setPrix(30);
+	System.out.println(book2);
+	book2.checkCurrentState();
+	
 //	int nbPageOfBook1, nbPageOfBook2;
 //	nbPageOfBook1 = book1.getNbPages();
 //        nbPageOfBook2 = book2.getNbPages();

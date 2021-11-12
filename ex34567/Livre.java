@@ -5,6 +5,10 @@ public class Livre {
 private String titre, auteur;
 private int nbPages; // miss ;
 
+// ex7 initial price with value is -1
+private double prix = -1;
+private boolean isPrixFixe = false;
+
 // Constructeur
 public Livre(String unAuteur, String unTitre) {
 auteur = unAuteur;
@@ -46,30 +50,57 @@ System.out.println("This is the book description using afficheToi method:");
 System.out.println("The auteur is: " + auteur);
 System.out.println("The title is: " + titre);
 System.out.format("The number of pages is: %d%n", nbPages);
+System.out.println(prix);
 }
+
 // overide tostring
 public String toString(){
 System.out.println("This is the book description using toString method");
-return "The auteur is: "+ auteur + " " + "The title is: " + titre + " "+ "The number of pages is: " + nbPages;
+if (prix != -1){
+return "The auteur is: "+ auteur + "," + "The title is: " + titre + ","+ "The number of pages is: " + nbPages + "," + "The price is: " + prix;
+}
+else{
+return "The auteur is: "+ auteur + "," + "The title is: " + titre + ","+ "The number of pages is: " + nbPages + "," + "The price not yet given";
+}
 }
 
-//main
-// public static void main(String args[]){
-// 	// ex3
-// 	Livre book1 = new Livre("auteur A","title A");
-// 	System.out.println("The Auteur of book 1 is" + book1.getAuteur());
-// 	Livre book2 = new Livre("auteur B", "title B");
-// 	System.out.println("The Auteur of book 2 is" + book2.getAuteur());
-// 	// ex4
-// 	book1.setNbPages(10);
-// 	book2.setNbPages(-1);
-// 	int nbPageOfBook1, nbPageOfBook2;
-// 	nbPageOfBook1 = book1.getNbPages();
-//         nbPageOfBook2 = book2.getNbPages();
-// 	System.out.format("The number of pages of book 1 is: %d%n", nbPageOfBook1);
-// 	System.out.format("The number of pages of book 2 is: %d%n", nbPageOfBook2);
-// 	System.out.format("The total of pages of two books is: %d%n",nbPageOfBook1 + nbPageOfBook2);	
-// }
+// investigate
+public void checkCurrentState(){
+System.out.println("Calling the checkCurrentState method and show current state");
+if (prix != -1){
+	System.out.println("The auteur is: " + auteur);
+	System.out.println("The title is: " + titre);
+	System.out.format("The number of pages is: %d%n", nbPages);
+	System.out.printf("The book price is: %f%n", prix);
+}
+else{
+	System.out.println("The auteur is: " + auteur);
+	System.out.println("The title is: " + titre);
+	System.out.format("The number of pages is: %d%n", nbPages);
+	System.out.printf("The price not yet given");
+}
+}
+
+// ex7 price
+public void setPrix(double pr){
+if (pr < 0){
+	System.out.println("The value of price is invalid");
+}
+else{}
+if (isPrixFixe == false){
+prix = pr;
+System.out.println("The boolean: " + isPrixFixe + "," + pr);
+isPrixFixe = true;
+}
+else{
+System.out.println("Don't allow set the new book price");
+System.out.println("The boolean: " + isPrixFixe + "," + pr);
+}
+}
+
+public double getPrix(){
+return prix;
+}
 
 }
 
