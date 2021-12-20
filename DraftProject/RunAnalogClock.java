@@ -26,7 +26,7 @@ import java.util.Calendar;
 public class RunAnalogClock {
     static int hour, minute, second;
 
-    public static class TimeSpinnerExample extends Application  {
+    public static class RunTimeSpinner extends Application  {
 
     
         @Override
@@ -36,12 +36,11 @@ public class RunAnalogClock {
     
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm:ss a");
     
-            // init value in spinner box
-            // spinner.valueProperty().addListener((obs, oldTime, newTime) -> 
+            spinner.valueProperty().addListener((obs, oldTime, newTime) -> 
             
-            //     System.out.println(formatter.format(newTime))
+                System.out.println(formatter.format(newTime))
                 
-            //     );
+                );
             StackPane root = new StackPane(spinner);
     
             Button btn = new Button("Apply");
@@ -56,17 +55,12 @@ public class RunAnalogClock {
                     hour = spinner.getValue().get(ChronoField.CLOCK_HOUR_OF_DAY);
                     minute = spinner.getValue().get(ChronoField.MINUTE_OF_HOUR);
                     second = spinner.getValue().get(ChronoField.SECOND_OF_MINUTE);
-                    // int[] arr = new int [3]; 
-                    // arr[0] = hour;
-                    // arr[1] = minute;
-                    // arr[2] = second;
-                    // System.out.println(arr);
                     primaryStage.close();
                 }
             };
             btn.setOnAction(event);
     
-            Scene scene = new Scene(root, 700, 120);
+            Scene scene = new Scene(root, 600, 120);
             primaryStage.setScene(scene);
             primaryStage.show();
     
@@ -76,17 +70,12 @@ public class RunAnalogClock {
      // main
     public static void main(String args[])   
     {
-        Application.launch(TimeSpinnerExample.class, args);
-    // TimeSpinnerExample timespinner = new TimeSpinnerExample();
-    // int hour, minute, second;
-    // hour = 6;
-    // minute = 40;
-    // second = 24;
-    // System.out.println(hour);
+        Application.launch(RunTimeSpinner.class, args);
 
     JFrame window = new JFrame();  
-    Color c = new Color(118, 73, 190);  
-    window.setBackground(c);  
+    // Color c = new Color(118, 73, 190);  
+    Color wallcolor = Color.decode("0x495B53");    
+    window.setBackground(wallcolor);  
     window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  
     window.setBounds(0, 0, 400, 400);  
     
