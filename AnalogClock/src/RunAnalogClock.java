@@ -1,12 +1,6 @@
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
+import java.awt.Color;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 
@@ -14,13 +8,9 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
 import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
-import javafx.scene.transform.Translate;
-import javafx.geometry.Pos;
 import javafx.event.EventHandler;
-import java.util.Calendar;
 
 
 public class RunAnalogClock {
@@ -45,7 +35,7 @@ public class RunAnalogClock {
 
             Button btn = new Button("Apply");
             btn.setTranslateX(200);
-            primaryStage.setTitle("Manual Setting Time");
+            primaryStage.setTitle("Time Picker");
             root.getChildren().add(btn);
 
             // action event
@@ -64,7 +54,6 @@ public class RunAnalogClock {
             primaryStage.setScene(scene);
             primaryStage.show();
 
-
         }
     }
     // main
@@ -73,13 +62,11 @@ public class RunAnalogClock {
         Application.launch(RunTimeSpinner.class, args);
 
         JFrame window = new JFrame();
-        // Color c = new Color(118, 73, 190);
         Color wallcolor = Color.decode("0x495B53");
         window.setBackground(wallcolor);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.setBounds(0, 0, 400, 400);
-
-        UIClock clock = new UIClock(hour, minute, second);
+        window.setBounds(1200, 200, 420, 460);
+        DisplayClock clock = new DisplayClock(hour, minute, second);
         window.getContentPane().add(clock);
         window.setVisible(true);
         clock.start();
