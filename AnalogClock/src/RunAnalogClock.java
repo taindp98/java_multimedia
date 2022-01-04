@@ -59,16 +59,27 @@ public class RunAnalogClock {
     // main
     public static void main(String args[])
     {
+        // Launch the JavaFX application is TimeSpinner Class
         Application.launch(RunTimeSpinner.class, args);
 
+        // Create the new application window from Java Swing
         JFrame window = new JFrame();
+        // Set the background color with a color code
         Color wallcolor = Color.decode("0x495B53");
         window.setBackground(wallcolor);
+        // Set the window operation
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // Set size and position for the window
         window.setBounds(1200, 200, 420, 460);
+
+        // Create a new object by inheriting DisplayClock Class
         DisplayClock clock = new DisplayClock(hour, minute, second);
+
+        // Add the clock into the application window
         window.getContentPane().add(clock);
         window.setVisible(true);
+
+        // Run the Threads in the clock object
         clock.start();
     }
 }
