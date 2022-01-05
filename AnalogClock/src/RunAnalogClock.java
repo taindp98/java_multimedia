@@ -14,7 +14,6 @@ import javafx.event.EventHandler;
 
 
 public class RunAnalogClock {
-    static int hour, minute, second;
 
     public static class RunTimeSpinner extends Application  {
 
@@ -42,10 +41,30 @@ public class RunAnalogClock {
             EventHandler <ActionEvent> event = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e)
                 {
+                    int hour, minute, second;
                     hour = spinner.getValue().get(ChronoField.CLOCK_HOUR_OF_DAY);
                     minute = spinner.getValue().get(ChronoField.MINUTE_OF_HOUR);
                     second = spinner.getValue().get(ChronoField.SECOND_OF_MINUTE);
                     primaryStage.close();
+                    // Create the new application window from Java Swing
+                    JFrame window = new JFrame();
+                    // Set the background color with a color code
+                    Color wallcolor = Color.decode("0x495B53");
+                    window.setBackground(wallcolor);
+                    // Set the window operation
+                    window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    // Set size and position for the window
+                    window.setBounds(1200, 200, 420, 460);
+
+                    // Create a new object by inheriting DisplayClock Class
+                    DisplayClock clock = new DisplayClock(hour, minute, second);
+
+                    // Add the clock into the application window
+                    window.getContentPane().add(clock);
+                    window.setVisible(true);
+
+                    // Run the Threads in the clock object
+                    clock.start();
                 }
             };
             btn.setOnAction(event);
@@ -61,25 +80,5 @@ public class RunAnalogClock {
     {
         // Launch the JavaFX application is TimeSpinner Class
         Application.launch(RunTimeSpinner.class, args);
-
-        // Create the new application window from Java Swing
-        JFrame window = new JFrame();
-        // Set the background color with a color code
-        Color wallcolor = Color.decode("0x495B53");
-        window.setBackground(wallcolor);
-        // Set the window operation
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Set size and position for the window
-        window.setBounds(1200, 200, 420, 460);
-
-        // Create a new object by inheriting DisplayClock Class
-        DisplayClock clock = new DisplayClock(hour, minute, second);
-
-        // Add the clock into the application window
-        window.getContentPane().add(clock);
-        window.setVisible(true);
-
-        // Run the Threads in the clock object
-        clock.start();
     }
 }
