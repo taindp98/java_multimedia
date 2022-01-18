@@ -1,3 +1,10 @@
+/*
+Filename     : DisplayClock.java
+Description  : Draw the clock's interface
+Author       : taindp98@gmail.com (Tai NGUYEN)
+Created On   : Fri 03/12/2021
+History (Date, Changed By): .
+ */
 import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;

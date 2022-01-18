@@ -1,6 +1,12 @@
+/*
+Filename     : TimeSpinner.java
+Description  : Create the Time Picker by spinner format.
+Author       : taindp98@gmail.com (Tai NGUYEN)
+Created On   : Fri 03/12/2021
+History (Date, Changed By): .
+ */
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Spinner;

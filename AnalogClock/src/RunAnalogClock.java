@@ -1,9 +1,14 @@
+/*
+Filename     : RunAnalogClock.java
+Description  : Ensemble modules include TimeSpinner.java a.k.a Time Picker and DisplayClock.java
+Author       : taindp98@gmail.com (Tai NGUYEN)
+Created On   : Fri 03/12/2021
+History (Date, Changed By): .
+ */
 import javax.swing.JFrame;
-
 import java.awt.Color;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
@@ -12,11 +17,9 @@ import javafx.scene.control.Button;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 
-
 public class RunAnalogClock {
 
     public static class RunTimeSpinner extends Application  {
-
 
         @Override
         public void start(Stage primaryStage) {
